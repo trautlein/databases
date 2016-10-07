@@ -96,7 +96,7 @@ app = {
       contentType: 'application/json',
       success: function(json) {
         message.objectId = json.objectId;
-        app.displayMessage(message);
+        // app.displayMessage(message);
       },
       complete: function() {
         app.stopSpinner();
