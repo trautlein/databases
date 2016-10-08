@@ -1,5 +1,6 @@
 var express = require('express');
 var db = require('./db');
+var Promise = require('bluebird');
 
 // Middleware
 var morgan = require('morgan');
@@ -21,6 +22,8 @@ app.use(parser.json());
 // Set up our routes
 app.use('/classes', router);
 
+db.fetchMessages();
+
 // Serve the client files
 app.use(express.static(__dirname + '/../client'));
 
@@ -29,4 +32,3 @@ if (!module.parent) {
   app.listen(app.get('port'));
   console.log('Listening on', app.get('port'));
 }
-

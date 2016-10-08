@@ -24,6 +24,10 @@ INSERT INTO messages (User, MessageText) VALUES ('Sarah', "How about you Hans?")
 INSERT INTO messages (User, MessageText) VALUES ('Hans', "Great, thanks for asking!");
 INSERT INTO messages (User, MessageText) VALUES ('UnrealDave', "I haven't seen you all in a while.");
 
+INSERT INTO users (UserName) VALUES ('Hans');
+INSERT INTO users (UserName) VALUES ('Sarah');
+INSERT INTO users (UserName) VALUES ('UnrealDave');
+
 
 
 /*  Execute this file from the command line by typing:

@@ -1,7 +1,31 @@
 var mysql = require('mysql');
+var Promise = require('bluebird');
 
-// Create a database connection and export it from this file.
-// You will need to connect with the user "root", no password,
-// and to the database "chat".
+var connection = mysql.createConnection({
+  // host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'chat'
+});
+connection.connect();
 
 
+
+exports.fetchMessages = function () {
+  return new Promise ( (resolve, reject) => {
+    connection.query('SELECT * FROM messages ORDER BY CreatedAt DESC', (err, results, fields) => {
+      if (err) {
+        reject(err);
+      } else  {
+        resolve(results);
+      };
+    })
+  }).then(data => {
+    console.log(data);
+    return data;
+  }).then( function() {
+    connection.end();
+  })
+};
+
+connection.end();
